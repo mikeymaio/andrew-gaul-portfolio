@@ -25,9 +25,9 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'Andrew Gaul\'s Portfolio',
   },
-  pathPrefix: '/gatsby-contentful-starter',
+  pathPrefix: '/andrew-gaul-portfolio',
   plugins: [
     'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
