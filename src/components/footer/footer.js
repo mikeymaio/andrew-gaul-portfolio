@@ -9,7 +9,6 @@ export default props => {
   return (
     <div className={styles.footer}>
       <Social social={social} />
-      {/* <Social /> */}
     </div>
   );
 };
