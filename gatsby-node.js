@@ -42,9 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     ////////////////////////////////////////////////////////////////////////
 
-
-    // const blogPost = path.resolve('./src/templates/blog-post.js')
-    const portfolioItem = path.resolve('./src/templates/blog-post.js')
+    const portfolioItem = path.resolve('./src/templates/portfolio-item.js')
     resolve(
       graphql(
         `

@@ -8,35 +8,25 @@ import Carousel from '../components/carousel/carousel'
 
 import heroStyles from '../components/hero/hero.module.css'
 
-import styles from './blog-post.module.css'
+import styles from './portfolio-item.module.css'
 
-class BlogPostTemplate extends React.Component {
+class PortfolioItemTemplate extends React.Component {
   render() {
-    const post = get(this.props, 'data.contentfulPortfolioItem')
+    const portfolioItem = get(this.props, 'data.contentfulPortfolioItem')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     const [contact] = get(this, 'props.data.allContentfulContact.edges');
     const [social] = get(this, 'props.data.allContentfulSocial.edges');
 
-    console.log('gallery: ', post.gallery);
-
     return (
       <Layout location={this.props.location} social={social} contact={contact} showNav={true}>
         <div style={{ background: '#fff' }} className={styles.portfolioItemWrapper}>
-          <Helmet title={`${post.title} | ${siteTitle}`}>
+          <Helmet title={`${portfolioItem.title} | ${siteTitle}`}>
             <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
           </Helmet>
-          {/* <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-            <Carousel />
-          </div> */}
           <div className="wrapper">
             <Carousel className={styles.carousel}>
-              {post.gallery.map(item => (
+              {portfolioItem.gallery.map(item => (
                 <div style={{ width: '100%', height: '100%' }}>
                   <Img
                     className={styles.galleryItem}
@@ -46,17 +36,17 @@ class BlogPostTemplate extends React.Component {
                 </div>
               ))}
             </Carousel>
-            <h1 className="section-headline">{post.title}</h1>
+            <h1 className="section-headline">{portfolioItem.title}</h1>
             <p
               style={{
                 display: 'block',
               }}
             >
-              {`Released ${post.releaseDate}`}
+              {`Released ${portfolioItem.releaseDate}`}
             </p>
             <div
               dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
+                __html: portfolioItem.body.childMarkdownRemark.html,
               }}
             />
           </div>
@@ -66,11 +56,11 @@ class BlogPostTemplate extends React.Component {
   }
 }
 
-export default BlogPostTemplate
+export default PortfolioItemTemplate
 
 export const pageQuery = graphql`
 
-  query BlogPostBySlug($slug: String!) {
+  query PortfolioItemBySlug($slug: String!) {
     site {
       siteMetadata {
         title
