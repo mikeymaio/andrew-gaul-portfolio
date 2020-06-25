@@ -20,16 +20,16 @@ export default ({ data, hideTitle, social }) => {
       <div className={styles.heroDetails}>
         {data.title && !hideTitle && (
           <h1 className={styles.heroHeadline}>
-            <Zoom left cascade={shouldCascade} duration={2000}>
+            <Fade cascade={shouldCascade} duration={2000}>
               {data.title}
-            </Zoom>
+            </Fade>
           </h1>
         )}
         {data.shortBio && (
           <h2>
-            <Zoom right cascade={shouldCascade} duration={2500}>
+            <Fade cascade={shouldCascade} duration={2500}>
               {data.shortBio.shortBio}
-            </Zoom>
+            </Fade>
           </h2>
         )}
       </div>

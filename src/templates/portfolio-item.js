@@ -42,7 +42,7 @@ class PortfolioItemTemplate extends React.Component {
                 display: 'block',
               }}
             >
-              {`Released ${portfolioItem.releaseDate}`}
+              {`Released ${portfolioItem.releaseDate} by ${portfolioItem.productionCompany}`}
             </p>
             <div
               dangerouslySetInnerHTML={{
@@ -82,22 +82,8 @@ export const pageQuery = graphql`
       slug
       tags
       title
+      productionCompany
       releaseDate(formatString: "MMMM YYYY")
-    }
-
-    contentfulBlogPost(slug: { eq: $slug }) {
-      title
-      publishDate(formatString: "MMMM Do, YYYY")
-      heroImage {
-        fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
     }
 
     allContentfulContact {

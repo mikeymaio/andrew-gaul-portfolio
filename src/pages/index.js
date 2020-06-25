@@ -4,12 +4,25 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview/article-preview'
+import PortfolioItemPreview from '../components/portfolio-item-preview/portfolio-item-preview'
 
 class RootIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filter: 'all'
+    }
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
+
+  handleSelectChange(event){
+    this.setState({ filter: event.target.value });
+  }
+
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const portfolioItems = get(this, 'props.data.allContentfulPortfolioItem.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [contact] = get(this, 'props.data.allContentfulContact.edges');
     const [social] = get(this, 'props.data.allContentfulSocial.edges');
@@ -23,12 +36,24 @@ class RootIndex extends React.Component {
           </Helmet>
           <Hero data={author.node} social={social} />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <div className="section-header-row">
+              <h2 className="section-headline">Recent Work</h2>
+              <div className="filter-row">
+              Filter: 
+              <select className="portfolio-filter" onChange={this.handleSelectChange} value={this.state.filter}>
+                <option value="all">All</option>
+                <option value="acting">Acting</option>
+                <option value="editing">Editing</option>
+                <option value="production">Production</option>
+              </select>
+              </div>
+            </div>
             <ul className="article-list">
-              {posts.map(({ node }) => {
+              {portfolioItems.map(({ node }) => {
+                if (this.state.filter !== 'all' && node.tags.indexOf(this.state.filter) === - 1) return null;
                 return (
                   <li key={node.slug}>
-                    <ArticlePreview article={node} />
+                    <PortfolioItemPreview project={node} />
                   </li>
                 )
               })}
@@ -66,6 +91,28 @@ export const pageQuery = graphql`
               html
             }
           }
+        }
+      }
+    }
+    allContentfulPortfolioItem(sort: { fields: [releaseDate], order: DESC }) {
+      edges {
+        node {
+          description {
+            childMarkdownRemark {
+              html
+            }
+          }
+          gallery {
+            title
+            fluid(maxWidth: 1180, background: "rgb:000000") {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+          slug
+          tags
+          title
+          productionCompany
+          releaseDate(formatString: "MMMM YYYY")
         }
       }
     }

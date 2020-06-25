@@ -22,7 +22,7 @@ class PageTemplate extends React.Component {
           <Helmet title={`${page.title} | ${siteTitle}`}>
             <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
           </Helmet>
-          <Hero data={page} hideTitle />
+          <Hero data={page} hideTitle social={social} />
           {/* <div className={heroStyles.hero}>
             <Img
               className={heroStyles.heroImage}

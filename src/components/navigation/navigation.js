@@ -94,10 +94,13 @@ export default (props) => {
         </li>
       </ul>
       <ul className={styles.navigation}>
-        <Fade left cascade duration={1500}>
-        <li className={styles.navigationItem} key="home">
-          <Link to={window.location.pathname === '/' ? '/#top' : '/'}>Home</Link>
-        </li>
+        <Fade cascade duration={1500}>
+          <li className={[styles.navigationItem, styles.homeLink].join(' ')} key="home">
+            <Link to={window.location.pathname === '/' ? '/#top' : '/'}>andrew<span className={styles.accentColor}>.</span>gaul</Link>
+          </li>
+        </Fade>
+        <li className={styles.navigation}>
+        <Fade cascade duration={1500}>
         <li className={styles.navigationItem} key="acting">
           <Link to="/acting">Acting</Link>
         </li>
@@ -108,6 +111,7 @@ export default (props) => {
           <Link to="/#contact">Contact</Link>
         </li>
         </Fade>
+        </li>
       </ul>
     </nav>
   )

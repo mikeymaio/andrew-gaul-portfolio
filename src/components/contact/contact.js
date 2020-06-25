@@ -47,7 +47,7 @@ export default props => {
           </div>
         </div>
       </div>
-      <Footer social={social} />
+      {/* <Footer social={social} /> */}
     </div>
   );
 };

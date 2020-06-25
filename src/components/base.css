@@ -45,9 +45,18 @@ a {
   padding: 0;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
   grid-gap: 5vmin;
 }
+
+@media(min-width: 768px) {
+  .article-list {
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-gap: 5vmin;
+  }
+}
+
+
 
 /**
  *
@@ -57,6 +66,88 @@ a {
   margin: 0 0 5vmin 0;
   border-bottom: 1px solid #ddd;
 }
+
+
+/**
+ *
+ */
+ .section-header-row {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  position: relative;
+}
+/**
+ *
+ */
+
+ .filter-row {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 25px;
+  /* position: absolute;
+  right: 10px;
+  top: 15px; */
+ }
+
+ @media(min-width: 768px) {
+  .filter-row {
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  }
+ }
+
+/**
+ *
+ */
+
+/* Reset Select */
+select {
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  /* -ms-appearance: none; */
+  /* appearance: none; */
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #0E0E0E;
+  /* background-image: none; */
+}
+
+/* Custom Select */
+.portfolio-filter {
+  position: relative;
+  display: flex;
+  height: 2.5em;
+  line-height: 2.5;
+  background: #0E0E0E;
+  overflow: hidden;
+  border-radius: .25em;
+  margin-left: 10px;
+}
+select {
+  padding: 0 .5em;
+  color: #fff;
+  cursor: pointer;
+}
+/* Arrow */
+.portfolio-filter::after {
+  /* content: '\25BC'; */
+  position: absolute;
+  top: 0;
+  right: 10px;
+  padding: 0 1em;
+  background: #FFF;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
 
 /**
  *
