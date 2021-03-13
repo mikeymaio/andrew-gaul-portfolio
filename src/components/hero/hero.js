@@ -2,7 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
-import WaterWave from '../../../libs/react-water-wave'
+// import WaterWave from '../../../libs/react-water-wave'
 
 import Social from '../social/social'
 import VimeoPlayer from '../vimeo-player/vimeo-player'
@@ -16,9 +16,9 @@ export default ({ data, hideTitle, social }) => {
     : false
 
   const RippleWrapper = (props) => {
-    if (hasWindow) {
-      return WaterWave
-    }
+    // if (hasWindow) {
+    // return WaterWave
+    // }
     return div
   }
 
