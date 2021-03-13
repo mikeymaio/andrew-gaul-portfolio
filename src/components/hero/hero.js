@@ -10,13 +10,20 @@ import VimeoPlayer from '../vimeo-player/vimeo-player'
 import styles from './hero.module.css'
 
 export default ({ data, hideTitle, social }) => {
-  const shouldCascade =
-    typeof window !== 'undefined' && window
-      ? window.matchMedia('(min-width: 768px)').matches
-      : false
+  const hasWindow = typeof window !== 'undefined' && window
+  const shouldCascade = hasWindow
+    ? window.matchMedia('(min-width: 768px)').matches
+    : false
+
+  const RippleWrapper = (props) => {
+    if (hasWindow) {
+      return WaterWave
+    }
+    return div
+  }
 
   return (
-    <WaterWave imageUrl={data.heroImage.fluid.src}>
+    <RippleWrapper imageUrl={data.heroImage.fluid.src}>
       {(methods) => (
         <div
           className={[styles.hero, data.showVideoReel && styles.videoHero].join(
@@ -70,6 +77,6 @@ export default ({ data, hideTitle, social }) => {
           />
         </div>
       )}
-    </WaterWave>
+    </RippleWrapper>
   )
 }
