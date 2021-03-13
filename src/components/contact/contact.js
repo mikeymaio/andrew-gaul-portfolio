@@ -1,12 +1,17 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import Social from '../social/social';
-import Footer from '../footer/footer';
+import React from 'react'
+import Img from 'gatsby-image'
+import Social from '../social/social'
+import Footer from '../footer/footer'
 
-import styles from './contact.module.css';
+import styles from './contact.module.css'
 
-export default props => {
-  const { contact: { node: { title, backgroundImage } }, social } = props;
+export default (props) => {
+  const {
+    contact: {
+      node: { title, backgroundImage },
+    },
+    social,
+  } = props
 
   return (
     <div className={styles.contactContainer} id="contact">
@@ -20,10 +25,22 @@ export default props => {
         </div>
       )}
       <div className={styles.content}>
-        <div className={['wrapper', styles.wrapper].join(' ')}>
+        <div
+          className={['wrapper', styles.wrapper].join(' ')}
+          data-sal="fade"
+          data-sal-delay="300"
+          data-sal-duration="900"
+          data-sal-easing="ease"
+        >
           <h2 className="section-headline">{title}</h2>
           <div className={styles.formWrapper}>
-            <form className={styles.form} name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form
+              className={styles.form}
+              name="contact"
+              method="post"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
               <input type="hidden" name="bot-field" />
               <input type="hidden" name="form-name" value="contact" />
               <div className={styles.field}>
@@ -49,6 +66,5 @@ export default props => {
       </div>
       <Footer social={social} />
     </div>
-  );
-};
-
+  )
+}

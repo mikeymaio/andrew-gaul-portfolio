@@ -10,48 +10,75 @@ import styles from './index.module.css'
 
 class RootIndex extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      filter: 'all'
+      filter: 'all',
     }
-    this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this)
   }
 
-  handleSelectChange(event){
-    this.setState({ filter: event.target.value });
+  handleSelectChange(event) {
+    this.setState({ filter: event.target.value })
   }
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const portfolioItems = get(this, 'props.data.allContentfulPortfolioItem.edges')
+    const portfolioItems = get(
+      this,
+      'props.data.allContentfulPortfolioItem.edges'
+    )
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
-    const [contact] = get(this, 'props.data.allContentfulContact.edges');
-    const [social] = get(this, 'props.data.allContentfulSocial.edges');
-
+    const [contact] = get(this, 'props.data.allContentfulContact.edges')
+    const [social] = get(this, 'props.data.allContentfulSocial.edges')
 
     return (
       <Layout location={this.props.location} social={social} contact={contact}>
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle}>
-            <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
+            <script
+              src="https://kit.fontawesome.com/b2ab21912f.js"
+              crossorigin="anonymous"
+              samesite="none"
+              secure
+            ></script>
           </Helmet>
           <Hero data={author.node} social={social} />
           <div className="wrapper">
-            <div className="section-header-row">
+            <div
+              className="section-header-row"
+              data-sal="slide-left"
+              data-sal-delay="300"
+              data-sal-duration="900"
+              data-sal-easing="ease"
+            >
               <h2 className="section-headline">Recent Work</h2>
               <div className="filter-row">
-              Filter: 
-              <select className="portfolio-filter" onChange={this.handleSelectChange} value={this.state.filter}>
-                <option value="all">All</option>
-                <option value="acting">Acting</option>
-                <option value="editing">Editing</option>
-                <option value="production">Production</option>
-              </select>
+                Filter:
+                <select
+                  className="portfolio-filter"
+                  onChange={this.handleSelectChange}
+                  value={this.state.filter}
+                >
+                  <option value="all">All</option>
+                  <option value="acting">Acting</option>
+                  <option value="editing">Editing</option>
+                  <option value="production">Production</option>
+                </select>
               </div>
             </div>
-            <ul className="article-list">
-              {portfolioItems.slice(0,7).map(({ node }) => {
-                if (this.state.filter !== 'all' && node.tags.indexOf(this.state.filter) === - 1) return null;
+            <ul
+              className="article-list"
+              data-sal="slide-right"
+              data-sal-delay="300"
+              data-sal-duration="900"
+              data-sal-easing="ease"
+            >
+              {portfolioItems.slice(0, 7).map(({ node }) => {
+                if (
+                  this.state.filter !== 'all' &&
+                  node.tags.indexOf(this.state.filter) === -1
+                )
+                  return null
                 return (
                   <li key={node.slug}>
                     <PortfolioItemPreview project={node} />
@@ -155,6 +182,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
   }
 `
