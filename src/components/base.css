@@ -36,7 +36,6 @@ a {
   margin: 0 auto;
   padding: 5vmin 0;
   position: relative;
-  /* background: #FFF; */
 }
 
 /**
@@ -74,10 +73,6 @@ a {
  *
  */
  .section-header-row {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   position: relative;
 }
 /**
@@ -86,12 +81,8 @@ a {
 
  .filter-row {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   margin-bottom: 25px;
-  /* position: absolute;
-  right: 10px;
-  top: 15px; */
  }
 
  @media(min-width: 768px) {
@@ -102,21 +93,12 @@ a {
   }
  }
 
-/**
- *
- */
-
 /* Reset Select */
 select {
-  /* -webkit-appearance: none; */
-  /* -moz-appearance: none; */
-  /* -ms-appearance: none; */
-  /* appearance: none; */
   outline: 0;
   box-shadow: none;
   border: 0 !important;
   background: #0E0E0E;
-  /* background-image: none; */
 }
 
 /* Custom Select */
@@ -137,7 +119,6 @@ select {
 }
 /* Arrow */
 .portfolio-filter::after {
-  /* content: '\25BC'; */
   position: absolute;
   top: 0;
   right: 10px;

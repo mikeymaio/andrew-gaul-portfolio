@@ -31,7 +31,6 @@
 
 .socialLinkTwitter {
   background: #1DA1F2;
-  /* border: 1px solid #fafafa; */
 }
 
 .socialLink > i {
@@ -43,10 +42,6 @@
   font-size: 18px;
   color: #fafafa;
 }
-
-/* .socialLinkGitHub > i {
-  font-size: 48px;
-} */
 
 .socialLink:hover,
 .socialLink:focus {
