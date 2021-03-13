@@ -13,7 +13,14 @@ export default (props) => {
   const smallLink = props.small && styles.socialLinkSmall
 
   return (
-    <div className={styles.socialWrapper} style={style || {}}>
+    <div
+      className={styles.socialWrapper}
+      style={style || {}}
+      data-sal="fade"
+      data-sal-delay="300"
+      data-sal-duration="900"
+      data-sal-easing="ease"
+    >
       {twitter && (
         <a
           href={twitter}

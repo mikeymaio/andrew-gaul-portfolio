@@ -13,29 +13,39 @@ class PageTemplate extends React.Component {
   render() {
     const page = get(this.props, 'data.contentfulPageTemplate')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
-    const [contact] = get(this, 'props.data.allContentfulContact.edges');
-    const [social] = get(this, 'props.data.allContentfulSocial.edges');
+    const [contact] = get(this, 'props.data.allContentfulContact.edges')
+    const [social] = get(this, 'props.data.allContentfulSocial.edges')
 
     return (
       <Layout location={this.props.location} contact={contact} social={social}>
         <div style={{ background: '#fff' }}>
           <Helmet title={`${page.title} | ${siteTitle}`}>
-            <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
+            <script
+              src="https://kit.fontawesome.com/b2ab21912f.js"
+              crossorigin="anonymous"
+              samesite="none"
+              secure
+            ></script>
           </Helmet>
           <Hero data={page} hideTitle social={social} />
-          {/* <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={page.title}
-              fluid={page.heroImage.fluid}
-            />
-          </div> */}
           <div className="wrapper">
-            <h1 className="section-headline">{page.title}</h1>
+            <h1
+              className="section-headline"
+              data-sal="slide-left"
+              data-sal-delay="250"
+              data-sal-duration="900"
+              data-sal-easing="ease"
+            >
+              {page.title}
+            </h1>
             <div
               dangerouslySetInnerHTML={{
                 __html: page.body.childMarkdownRemark.html,
               }}
+              data-sal="slide-right"
+              data-sal-delay="500"
+              data-sal-duration="900"
+              data-sal-easing="ease"
             />
           </div>
         </div>
@@ -67,11 +77,11 @@ export const pageQuery = graphql`
       }
       videoReel {
         file {
-            contentType
-            url
+          contentType
+          url
         }
         fluid(maxWidth: 1440, background: "rgb:000000") {
-            ...GatsbyContentfulFluid_noBase64
+          ...GatsbyContentfulFluid_noBase64
         }
       }
       showVideoReel
@@ -104,6 +114,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
   }
 `

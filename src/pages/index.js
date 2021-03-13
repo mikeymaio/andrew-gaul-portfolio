@@ -47,7 +47,7 @@ class RootIndex extends React.Component {
             <div
               className="section-header-row"
               data-sal="slide-left"
-              data-sal-delay="300"
+              data-sal-delay="250"
               data-sal-duration="900"
               data-sal-easing="ease"
             >
@@ -69,7 +69,7 @@ class RootIndex extends React.Component {
             <ul
               className="article-list"
               data-sal="slide-right"
-              data-sal-delay="300"
+              data-sal-delay="500"
               data-sal-duration="900"
               data-sal-easing="ease"
             >
