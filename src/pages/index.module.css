@@ -1,0 +1,19 @@
+.viewAllContainer {
+  width: 100%;
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewAllWrapper {
+  padding: 10px 20px;
+  border-radius: 6px;
+  background-color: #000;
+}
+
+.viewAllWrapper a {
+  color: #00CED1;
+  text-decoration: none;
+  font-weight: bold;
+}

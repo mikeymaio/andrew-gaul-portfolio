@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import get from 'lodash/get';
+import get from 'lodash/get'
 import base from './base.css'
 import Container from './container'
 import Navigation from './navigation/navigation'
@@ -22,7 +22,7 @@ class Template extends React.Component {
 
     return (
       <Container>
-        <Navigation showNav={showNav} />
+        <Navigation showNav={showNav} social={social} />
         {children}
         <Contact contact={contact} social={social} />
         {/* <Footer contact={contact} social={social} /> */}

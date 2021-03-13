@@ -1,10 +1,12 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Hero from '../components/hero/hero'
 import Layout from '../components/layout'
 import PortfolioItemPreview from '../components/portfolio-item-preview/portfolio-item-preview'
+
+import styles from './index.module.css'
 
 class RootIndex extends React.Component {
   constructor(props) {
@@ -21,7 +23,6 @@ class RootIndex extends React.Component {
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
     const portfolioItems = get(this, 'props.data.allContentfulPortfolioItem.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const [contact] = get(this, 'props.data.allContentfulContact.edges');
@@ -49,7 +50,7 @@ class RootIndex extends React.Component {
               </div>
             </div>
             <ul className="article-list">
-              {portfolioItems.map(({ node }) => {
+              {portfolioItems.slice(0,7).map(({ node }) => {
                 if (this.state.filter !== 'all' && node.tags.indexOf(this.state.filter) === - 1) return null;
                 return (
                   <li key={node.slug}>
@@ -58,6 +59,13 @@ class RootIndex extends React.Component {
                 )
               })}
             </ul>
+            {portfolioItems.length > 6 && (
+              <div className={styles.viewAllContainer}>
+                <div className={styles.viewAllWrapper}>
+                  <Link to="/portfolio">VIEW ALL</Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </Layout>
@@ -72,26 +80,6 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
       }
     }
     allContentfulPortfolioItem(sort: { fields: [releaseDate], order: DESC }) {

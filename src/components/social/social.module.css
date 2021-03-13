@@ -2,6 +2,8 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  position: relative;
+  z-index: 99;
 }
 
 .socialLink {
@@ -17,6 +19,12 @@
   transition: all 0.33s ease-in-out;
 }
 
+.socialLinkSmall {
+  height: 36px;
+  width: 36px;
+  margin-top: 20px;
+}
+
 .socialLinkLinkedIn {
   background: #0070C0;
 }
@@ -28,6 +36,11 @@
 
 .socialLink > i {
   font-size: 32px;
+  color: #fafafa;
+}
+
+.socialLinkSmall > i {
+  font-size: 18px;
   color: #fafafa;
 }
 
@@ -72,6 +85,10 @@
   font-size: 54px;
 }
 
+.socialLinkSmall.socialLinkIMDB > i {
+  font-size: 40px;
+}
+
 .socialLinkIMDB:hover > i,
 .socialLinkIMDB:focus > i {
   color: #F2DB83;
@@ -86,6 +103,11 @@
   -webkit-text-fill-color: transparent;
   font-size: 54px;
 }
+
+.socialLinkSmall.socialLinkIG > i {
+  font-size: 40px;
+}
+
 .socialLinkIG:hover > i {
   background: -webkit-radial-gradient(33% 100% circle, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);
   background: radial-gradient(circle at 33% 100%, #FED373 4%, #F15245 30%, #D92E7F 62%, #9B36B7 85%, #515ECF);

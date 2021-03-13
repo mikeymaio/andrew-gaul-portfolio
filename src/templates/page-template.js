@@ -65,6 +65,16 @@ export const pageQuery = graphql`
           html
         }
       }
+      videoReel {
+        file {
+            contentType
+            url
+        }
+        fluid(maxWidth: 1440, background: "rgb:000000") {
+            ...GatsbyContentfulFluid_noBase64
+        }
+      }
+      showVideoReel
     }
 
     allContentfulContact {
