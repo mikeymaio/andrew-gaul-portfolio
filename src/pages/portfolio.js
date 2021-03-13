@@ -10,14 +10,24 @@ class PortfolioIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const projects = get(this, 'props.data.allContentfulPortfolioItem.edges')
-    const [contact] = get(this, 'props.data.allContentfulContact.edges');
-    const [social] = get(this, 'props.data.allContentfulSocial.edges');
+    const [contact] = get(this, 'props.data.allContentfulContact.edges')
+    const [social] = get(this, 'props.data.allContentfulSocial.edges')
 
     return (
-      <Layout location={this.props.location} contact={contact} social={social} showNav={true}>
+      <Layout
+        location={this.props.location}
+        contact={contact}
+        social={social}
+        showNav={true}
+      >
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle}>
-            <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
+            <script
+              src="https://kit.fontawesome.com/b2ab21912f.js"
+              crossorigin="anonymous"
+              samesite="none"
+              secure
+            ></script>
           </Helmet>
           <div className={styles.hero}>Portfolio</div>
           <div className="wrapper">
@@ -58,7 +68,7 @@ export const pageQuery = graphql`
           gallery {
             title
             fluid(maxWidth: 1180, background: "rgb:000000") {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
           slug
@@ -79,7 +89,7 @@ export const pageQuery = graphql`
               resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }

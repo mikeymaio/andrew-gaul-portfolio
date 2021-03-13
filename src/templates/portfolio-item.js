@@ -15,18 +15,31 @@ class PortfolioItemTemplate extends React.Component {
     const portfolioItem = get(this.props, 'data.contentfulPortfolioItem')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
-    const [contact] = get(this, 'props.data.allContentfulContact.edges');
-    const [social] = get(this, 'props.data.allContentfulSocial.edges');
+    const [contact] = get(this, 'props.data.allContentfulContact.edges')
+    const [social] = get(this, 'props.data.allContentfulSocial.edges')
 
     return (
-      <Layout location={this.props.location} social={social} contact={contact} showNav={true}>
-        <div style={{ background: '#fff' }} className={styles.portfolioItemWrapper}>
+      <Layout
+        location={this.props.location}
+        social={social}
+        contact={contact}
+        showNav={true}
+      >
+        <div
+          style={{ background: '#fff' }}
+          className={styles.portfolioItemWrapper}
+        >
           <Helmet title={`${portfolioItem.title} | ${siteTitle}`}>
-            <script src="https://kit.fontawesome.com/b2ab21912f.js" crossorigin="anonymous" samesite="none" secure></script>
+            <script
+              src="https://kit.fontawesome.com/b2ab21912f.js"
+              crossorigin="anonymous"
+              samesite="none"
+              secure
+            ></script>
           </Helmet>
           <div className="wrapper">
             <Carousel className={styles.carousel}>
-              {portfolioItem.gallery.map(item => (
+              {portfolioItem.gallery.map((item) => (
                 <div style={{ width: '100%', height: '100%' }}>
                   <Img
                     className={styles.galleryItem}
@@ -59,7 +72,6 @@ class PortfolioItemTemplate extends React.Component {
 export default PortfolioItemTemplate
 
 export const pageQuery = graphql`
-
   query PortfolioItemBySlug($slug: String!) {
     site {
       siteMetadata {
@@ -76,7 +88,7 @@ export const pageQuery = graphql`
       gallery {
         title
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       slug
@@ -96,7 +108,7 @@ export const pageQuery = graphql`
               resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -113,7 +125,5 @@ export const pageQuery = graphql`
         }
       }
     }
-
-
   }
 `

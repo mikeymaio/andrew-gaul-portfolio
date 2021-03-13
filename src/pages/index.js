@@ -120,7 +120,7 @@ export const pageQuery = graphql`
           gallery {
             title
             fluid(maxWidth: 1180, background: "rgb:000000") {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
           slug
@@ -148,7 +148,7 @@ export const pageQuery = graphql`
               resizingBehavior: PAD
               background: "rgb:000000"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -165,7 +165,7 @@ export const pageQuery = graphql`
               resizingBehavior: FILL
               background: "rgb:FFFFFF"
             ) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }
