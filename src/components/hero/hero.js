@@ -32,11 +32,6 @@ export default ({ data, hideTitle, social }) => {
           id="home"
         >
           <div style={{ height: '100vh', width: '100vw' }} />
-          {/* <Img
-              className={styles.heroImage}
-              alt={data.name || 'hero'}
-              fluid={data.heroImage.fluid}
-            /> */}
           <div
             className={[
               styles.heroDetails,
@@ -92,7 +87,6 @@ export default ({ data, hideTitle, social }) => {
               alt={data.name || 'hero'}
               fluid={data.heroImage.fluid}
             />
-            // <div style={{ height: '100vh' }} />
           )}
           <div
             className={[
