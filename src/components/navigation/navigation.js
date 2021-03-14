@@ -29,7 +29,7 @@ export default (props) => {
   }, [])
 
   function handleResize() {
-    const isIosSafari = iOSSafari(window?.navigator.userAgent)
+    const isIosSafari = iOSSafari(window?.navigator?.userAgent)
 
     if (isIosSafari) {
       const docHeight = window?.innerHeight
