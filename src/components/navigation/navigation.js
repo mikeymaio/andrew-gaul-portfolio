@@ -5,7 +5,7 @@ import styles from './navigation.module.css'
 import { iOSSafari } from '../../utils'
 import Social from '../social/social'
 
-let window = typeof window !== 'undefined' && window;
+// let window = typeof window !== 'undefined' && window;
 
 if (typeof window !== 'undefined' && window) {
   // eslint-disable-next-line global-require
