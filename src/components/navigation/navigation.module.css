@@ -6,7 +6,7 @@
   z-index: 100;
   background-color: #0E0E0E;
   min-height: 60px;
-  width: 99%;
+  max-width: 99%;
 
   transition: all 0.75s ease;
 }
@@ -90,6 +90,7 @@
 .menuOpen {
   max-height: 35vh;
   padding: 20px 0;
+  max-width: 100vw;
 }
 
 
