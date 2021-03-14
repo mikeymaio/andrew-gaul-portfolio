@@ -23,11 +23,11 @@ export default ({ data, hideTitle, social }) => {
 
   const [backgroundPosition, setBackgroundPosition] = React.useState('center');
 
-  React.useEffect(() => {
-    if (WaterWave) {
-      setBackgroundPosition('center');
-    }
-  }, [])
+  // React.useEffect(() => {
+  //   if (WaterWave) {
+  //     setBackgroundPosition('center');
+  //   }
+  // }, [])
 
   if (WaterWave && !data.showVideoReel) {
     return (
