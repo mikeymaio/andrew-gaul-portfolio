@@ -2,14 +2,11 @@ import React from 'react'
 import Img from 'gatsby-image'
 import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
-// import WaterWave from '../../../libs/react-water-wave'
 
 import Social from '../social/social'
 import VimeoPlayer from '../vimeo-player/vimeo-player'
 
 import styles from './hero.module.css'
-
-// import WaterWave from '../../../libs/react-water-wave';
 
 let WaterWave;
 
@@ -26,7 +23,7 @@ export default ({ data, hideTitle, social }) => {
 
   if (WaterWave && !data.showVideoReel) {
     return (
-      <WaterWave.default imageUrl={data.heroImage.fluid.src}>
+      <WaterWave.default imageUrl={data.heroImage.fluid.src} style={{ backgroundPosition: 'center' }}>
         {methods => (
           <div
           className={[styles.hero, data.showVideoReel && styles.videoHero].join(
@@ -34,7 +31,12 @@ export default ({ data, hideTitle, social }) => {
           )}
           id="home"
         >
-          <div style={{ height: '100vh' }} />
+          <div style={{ height: '100vh', width: '100vw' }} />
+          {/* <Img
+              className={styles.heroImage}
+              alt={data.name || 'hero'}
+              fluid={data.heroImage.fluid}
+            /> */}
           <div
             className={[
               styles.heroDetails,
