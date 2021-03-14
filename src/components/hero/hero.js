@@ -21,9 +21,17 @@ export default ({ data, hideTitle, social }) => {
     ? window?.matchMedia('(min-width: 768px)').matches
     : false
 
+  const [backgroundPosition, setBackgroundPosition] = React.useState('center');
+
+  React.useEffect(() => {
+    if (WaterWave) {
+      setBackgroundPosition('center');
+    }
+  }, [])
+
   if (WaterWave && !data.showVideoReel) {
     return (
-      <WaterWave.default imageUrl={data.heroImage.fluid.src} style={{ backgroundPosition: 'center' }}>
+      <WaterWave.default imageUrl={data.heroImage.fluid.src} crossOrigin="anonymous" style={{ backgroundPosition }}>
         {methods => (
           <div
           className={[styles.hero, data.showVideoReel && styles.videoHero].join(
