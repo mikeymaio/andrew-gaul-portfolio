@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  left: 0;
+  left: 0.5%;
   z-index: 100;
   background-color: #0E0E0E;
   min-height: 60px;
@@ -13,6 +13,7 @@
 @media only screen and (min-width: 481px) {
   .navContainer {
     max-width: 100%;
+    left: 0;
   }
 }
 .navTop {
