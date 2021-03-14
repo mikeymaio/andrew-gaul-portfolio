@@ -23,7 +23,7 @@ export default ({ data, hideTitle, social }) => {
 
   if (WaterWave && !data.showVideoReel) {
     return (
-      <WaterWave.default imageUrl={data.heroImage.fluid.src} style={{ backgroundPosition: 'center' }} className={styles.waterWave}>
+      <WaterWave.default imageUrl={data.heroImage.fluid.src} style={{ backgroundPosition: 'center' }}>
         {methods => (
           <div
           className={[styles.hero, data.showVideoReel && styles.videoHero].join(
