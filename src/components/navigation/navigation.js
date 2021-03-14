@@ -5,12 +5,14 @@ import styles from './navigation.module.css'
 import { iOSSafari } from '../../utils'
 import Social from '../social/social'
 
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]', {
-    offset: 50,
-  })
-}
+let window = typeof window !== 'undefined' ? window : {};
+
+// if (typeof window !== 'undefined' && window) {
+//   // eslint-disable-next-line global-require
+//   require('smooth-scroll')('a[href*="#"]', {
+//     offset: 50,
+//   })
+// }
 
 export default (props) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,16 +23,16 @@ export default (props) => {
     handleScroll()
     handleResize()
 
-    window.addEventListener('scroll', handleScroll)
+    window?.addEventListener('scroll', handleScroll)
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => window?.removeEventListener('scroll', handleScroll)
   }, [])
 
   function handleResize() {
-    const isIosSafari = iOSSafari(window.navigator.userAgent)
+    const isIosSafari = iOSSafari(window?.navigator.userAgent)
 
     if (isIosSafari) {
-      const docHeight = window.innerHeight
+      const docHeight = window?.innerHeight
 
       const heroImageContainer = document.getElementById('home')
         .firstElementChild
@@ -40,13 +42,13 @@ export default (props) => {
   }
 
   function scrollOnLoad() {
-    if (window.location.hash) {
+    if (window?.location?.hash) {
       const scrollEl = document.getElementById(
-        window.location.hash.split('#')[1]
+        window?.location?.hash?.split('#')[1]
       )
       if (scrollEl) {
         const scrollDestination = scrollEl.getBoundingClientRect().top - 61
-        window.scrollTo({
+        window?.scrollTo({
           top: scrollDestination,
           behavior: 'smooth',
         })
@@ -56,7 +58,7 @@ export default (props) => {
   }
 
   function handleScroll() {
-    const scrolled = window.scrollY > window.innerHeight - 61
+    const scrolled = window?.scrollY > window?.innerHeight - 61
     if (scrolled !== isScrolled) {
       setIsScrolled(scrolled)
     }
@@ -123,7 +125,7 @@ export default (props) => {
             className={[styles.navigationItem, styles.homeLink].join(' ')}
             key="home"
           >
-            <Link to={window.location.pathname === '/' ? '/#top' : '/'}>
+            <Link to={window && window?.location?.pathname === '/' ? '/#top' : '/'}>
               andrew<span className={styles.accentColor}>.</span>gaul
             </Link>
           </li>

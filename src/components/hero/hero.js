@@ -12,7 +12,7 @@ import styles from './hero.module.css'
 export default ({ data, hideTitle, social }) => {
   const hasWindow = typeof window !== 'undefined' && window
   const shouldCascade = hasWindow
-    ? window.matchMedia('(min-width: 768px)').matches
+    ? window?.matchMedia('(min-width: 768px)').matches
     : false
 
   return (
