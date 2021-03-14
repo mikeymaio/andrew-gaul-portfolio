@@ -43,7 +43,7 @@ class RootIndex extends React.Component {
             ></script>
           </Helmet>
           <Hero data={author.node} social={social} />
-          <div className="wrapper">
+          <div className="wrapper" style={{ maxWidth: '100vw', overflowX: 'hidden'}}>
             <div
               className="section-header-row"
               data-sal="slide-left"
