@@ -10,7 +10,11 @@
 
   transition: all 0.75s ease;
 }
-
+@media only screen and (min-width: 481px) {
+  .navContainer {
+    max-width: 100%;
+  }
+}
 .navTop {
   background-color: transparent !important;
 }
