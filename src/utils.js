@@ -1,7 +1,7 @@
 const hasWindow = typeof window !== 'undefined' && window
 
 export const iOSSafari = (userAgent) => {
-  return userAgent.match(/(iPod|iPhone|iPad)/) && userAgent.match(/AppleWebKit/)
+  return userAgent?.match(/(iPod|iPhone|iPad)/) && userAgent?.match(/AppleWebKit/)
 }
 
   /**
