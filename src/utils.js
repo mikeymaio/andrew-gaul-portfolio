@@ -157,17 +157,3 @@ export const iOSSafari = (userAgent) => {
   function isArray(obj) {
     return toString.call(obj) === '[object Array]'
   }
-
-  // Give the init function the Froogaloop prototype for later instantiation
-  Froogaloop.fn.init.prototype = Froogaloop.fn
-
-  // Listens for the message event.
-  // W3C
-  if (hasWindow && window.addEventListener) {
-    window.addEventListener('message', onMessageReceived, false)
-  }
-  // IE
-  else {
-    hasWindow && window.attachEvent('onmessage', onMessageReceived, false)
-  }
-})()

@@ -15,16 +15,7 @@ export default ({ data, hideTitle, social }) => {
     ? window.matchMedia('(min-width: 768px)').matches
     : false
 
-  const RippleWrapper = (props) => {
-    // if (hasWindow) {
-    // return WaterWave
-    // }
-    return div
-  }
-
   return (
-    <RippleWrapper imageUrl={data.heroImage.fluid.src}>
-      {(methods) => (
         <div
           className={[styles.hero, data.showVideoReel && styles.videoHero].join(
             ' '
@@ -37,12 +28,12 @@ export default ({ data, hideTitle, social }) => {
               showVideoReel={data.showVideoReel}
             />
           ) : (
-            // <Img
-            //   className={styles.heroImage}
-            //   alt={data.name || 'hero'}
-            //   fluid={data.heroImage.fluid}
-            // />
-            <div style={{ height: '100vh' }} />
+            <Img
+              className={styles.heroImage}
+              alt={data.name || 'hero'}
+              fluid={data.heroImage.fluid}
+            />
+            // <div style={{ height: '100vh' }} />
           )}
           <div
             className={[
@@ -76,7 +67,5 @@ export default ({ data, hideTitle, social }) => {
             }}
           />
         </div>
-      )}
-    </RippleWrapper>
   )
 }
