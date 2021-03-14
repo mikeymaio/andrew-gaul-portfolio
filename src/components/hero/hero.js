@@ -9,11 +9,68 @@ import VimeoPlayer from '../vimeo-player/vimeo-player'
 
 import styles from './hero.module.css'
 
+// import WaterWave from '../../../libs/react-water-wave';
+
+let WaterWave;
+
+if (typeof window !== 'undefined' && window) {
+  // eslint-disable-next-line global-require
+  WaterWave = require('../../../libs/react-water-wave');
+}
+
 export default ({ data, hideTitle, social }) => {
   const hasWindow = typeof window !== 'undefined' && window
   const shouldCascade = hasWindow
     ? window?.matchMedia('(min-width: 768px)').matches
     : false
+
+  if (WaterWave && !data.showVideoReel) {
+    return (
+      <WaterWave.default imageUrl={data.heroImage.fluid.src}>
+        {methods => (
+          <div
+          className={[styles.hero, data.showVideoReel && styles.videoHero].join(
+            ' '
+          )}
+          id="home"
+        >
+          <div style={{ height: '100vh' }} />
+          <div
+            className={[
+              styles.heroDetails,
+              data.showVideoReel && styles.transparent,
+            ].join(' ')}
+          >
+            <div className={styles.heroTextWrapper}>
+              {data.title && !hideTitle && (
+                <h1 className={styles.heroHeadline}>
+                  <Fade cascade={shouldCascade} duration={2000}>
+                    {data.title}
+                  </Fade>
+                </h1>
+              )}
+              {data.shortBio && (
+                <h2>
+                  <Fade cascade={shouldCascade} duration={2500}>
+                    {data.shortBio.shortBio}
+                  </Fade>
+                </h2>
+              )}
+            </div>
+          </div>
+          <Social
+            social={social}
+            style={{
+              position: 'absolute',
+              bottom: 20,
+              justifyContent: 'flex-end',
+            }}
+          />
+        </div>
+        )}
+      </WaterWave.default>
+    )
+  }
 
   return (
         <div
