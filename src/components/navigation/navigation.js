@@ -123,8 +123,7 @@ export default (props) => {
             className={[styles.navigationItem, styles.homeLink].join(' ')}
             key="home"
           >
-            {/* <Link to={window && window?.location?.pathname === '/' ? '/#top' : '/'}> */}
-            <Link to={'/#top'}>
+            <Link to={'/'}>
               andrew<span className={styles.accentColor}>.</span>gaul
             </Link>
           </li>
