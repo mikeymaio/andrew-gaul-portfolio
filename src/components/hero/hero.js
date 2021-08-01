@@ -89,9 +89,12 @@ export default ({ data, hideTitle, social }) => {
       )}
       id="home"
     >
-      {!!data.videoReel && data.showVideoReel ? (
+      {!!data.videoReel || (!!data.videoReelLink && data.showVideoReel) ? (
         <VimeoPlayer
-          videoReel="https://player.vimeo.com/video/195873953?autoplay=1&loop=1&byline=0&title=0"
+          videoReel={
+            data.videoReelLink ||
+            'https://player.vimeo.com/video/195873953?autoplay=1&loop=1&byline=0&title=0'
+          }
           showVideoReel={data.showVideoReel}
         />
       ) : (

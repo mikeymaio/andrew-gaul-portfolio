@@ -141,6 +141,7 @@ export const pageQuery = graphql`
           ...GatsbyContentfulFluid_noBase64
         }
       }
+      videoReelLink
       showVideoReel
       showPortfolioList
       filterPortfolioType
