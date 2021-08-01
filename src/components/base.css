@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Avenir";
+  font-family: 'Avenir';
   font-weight: 400;
   font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
+  src: url('/avenir-400.woff2') format('woff2');
   font-display: swap;
 }
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: 'Avenir', Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
+  color: #373f49;
   background: #eee;
   margin: 0;
 }
@@ -50,14 +50,12 @@ a {
   grid-gap: 5vmin;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .article-list {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     grid-gap: 5vmin;
   }
 }
-
-
 
 /**
  *
@@ -68,37 +66,36 @@ a {
   border-bottom: 1px solid #ddd;
 }
 
-
 /**
  *
  */
- .section-header-row {
+.section-header-row {
   position: relative;
 }
 /**
  *
  */
 
- .filter-row {
+.filter-row {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
- }
+}
 
- @media(min-width: 768px) {
+@media (min-width: 768px) {
   .filter-row {
-  position: absolute;
-  right: 10px;
-  top: 15px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
   }
- }
+}
 
 /* Reset Select */
 select {
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #0E0E0E;
+  background: #0e0e0e;
 }
 
 /* Custom Select */
@@ -107,13 +104,13 @@ select {
   display: flex;
   height: 2.5em;
   line-height: 2.5;
-  background: #0E0E0E;
+  background: #0e0e0e;
   overflow: hidden;
-  border-radius: .25em;
+  border-radius: 0.25em;
   margin-left: 10px;
 }
 select {
-  padding: 0 .5em;
+  padding: 0 0.5em;
   color: #fff;
   cursor: pointer;
 }
@@ -123,14 +120,13 @@ select {
   top: 0;
   right: 10px;
   padding: 0 1em;
-  background: #FFF;
+  background: #fff;
   cursor: pointer;
   pointer-events: none;
-  -webkit-transition: .25s all ease;
-  -o-transition: .25s all ease;
-  transition: .25s all ease;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
 }
-
 
 /**
  *

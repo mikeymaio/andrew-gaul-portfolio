@@ -21,32 +21,40 @@ export default (props) => {
     handleScroll()
     handleResize()
 
-    window?.addEventListener('scroll', handleScroll)
+    if (!!window) {
+      window.addEventListener('scroll', handleScroll)
+    }
 
-    return () => window?.removeEventListener('scroll', handleScroll)
+    return () => {
+      if (!!window) {
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
   }, [])
 
   function handleResize() {
-    const isIosSafari = iOSSafari(window?.navigator?.userAgent)
+    if (!!window && !!window.navigator) {
+      const isIosSafari = iOSSafari(window.navigator.userAgent)
 
-    if (isIosSafari) {
-      const docHeight = window?.innerHeight
+      if (isIosSafari) {
+        const docHeight = window.innerHeight
 
-      const heroImageContainer = document.getElementById('home')
-        .firstElementChild
+        const heroImageContainer = document.getElementById('home')
+          .firstElementChild
 
-      heroImageContainer.style.height = `${docHeight}px`
+        heroImageContainer.style.height = `${docHeight}px`
+      }
     }
   }
 
   function scrollOnLoad() {
-    if (window?.location?.hash) {
+    if (window && window.location && window.location.hash) {
       const scrollEl = document.getElementById(
-        window?.location?.hash?.split('#')[1]
+        window.location.hash.split('#')[1]
       )
       if (scrollEl) {
         const scrollDestination = scrollEl.getBoundingClientRect().top - 61
-        window?.scrollTo({
+        window.scrollTo({
           top: scrollDestination,
           behavior: 'smooth',
         })
@@ -56,9 +64,11 @@ export default (props) => {
   }
 
   function handleScroll() {
-    const scrolled = window?.scrollY > window?.innerHeight - 61
-    if (scrolled !== isScrolled) {
-      setIsScrolled(scrolled)
+    if (!!window) {
+      const scrolled = window.scrollY > window.innerHeight - 61
+      if (scrolled !== isScrolled) {
+        setIsScrolled(scrolled)
+      }
     }
   }
 
